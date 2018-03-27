@@ -1,0 +1,16 @@
+XXXXXXXXX
+XP      X
+X     B X
+X   XB  X
+X   X  OX
+X  OX XXX
+X     B X
+XXXXXO  X
+X   X   X
+XXXXXXXXX you can write what you want
+only legal characters get turned into a map
+b: box
+o: boxspot
+p: player spawn
+x: walls
+anything else is floor
