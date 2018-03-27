@@ -159,6 +159,7 @@ class Game {
             "width": 64 * map.size[0] + "px",
             "height": 64 * map.size[1] + "px"
         });
+        this.reset();
         this.generateHtml();
     }
 
