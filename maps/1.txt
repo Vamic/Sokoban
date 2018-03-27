@@ -12,5 +12,6 @@ only legal characters get turned into a map
 b: box
 o: boxspot
 p: player spawn
+eight: a box on a boxspot
 x: walls
 anything else is floor
