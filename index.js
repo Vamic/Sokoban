@@ -262,7 +262,19 @@ class Game {
         var game = this;
         $.get(path, function (data) {
             cb(new Map(data, game));
-        });
+        }).fail(function (err) {
+            var input = document.createElement('input');
+            input.type = 'file';
+            input.onchange = function (event) {
+                if (input.files[0].type !== "text/plain") return alert("Only .txt map files.");
+                var fr = new FileReader();
+                fr.onload = function () {
+                    cb(new Map(fr.result, game));
+                };
+                fr.readAsText(input.files[0]);
+            };
+            input.click();
+        });        
     }
 }
 
@@ -294,6 +306,12 @@ $(document).ready(function () {
             path: "maps/4.txt"
         }
     ];
+
+    if (window.File && window.FileReader && window.FileList && window.Blob) {
+        // Great success! All the File APIs are supported.
+    } else {
+        alert('The File APIs are not fully supported in this browser.');
+    }
 
     for (var i in maps) {
         var map = maps[i];
